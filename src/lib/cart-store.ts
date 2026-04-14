@@ -1,4 +1,4 @@
-import { useState, useCallback } from "react";
+import { useState, useEffect } from "react";
 
 export interface CartItem {
   id: string;
@@ -60,21 +60,15 @@ export function getCartCount() {
 }
 
 export function useCart() {
-  const [, setTick] = useState(0);
+  const [tick, setTick] = useState(0);
 
-  const subscribe = useCallback(() => {
+  useEffect(() => {
     const listener = () => setTick((t) => t + 1);
     listeners.push(listener);
     return () => {
       listeners = listeners.filter((l) => l !== listener);
     };
   }, []);
-
-  // Subscribe on mount
-  useState(() => {
-    const unsub = subscribe();
-    return unsub;
-  });
 
   return {
     items: getCart(),
