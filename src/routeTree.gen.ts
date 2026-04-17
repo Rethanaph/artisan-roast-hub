@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as ShopRouteImport } from './routes/shop'
+import { Route as DrinksRouteImport } from './routes/drinks'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as CartRouteImport } from './routes/cart'
 import { Route as BlogRouteImport } from './routes/blog'
@@ -18,6 +19,11 @@ import { Route as IndexRouteImport } from './routes/index'
 const ShopRoute = ShopRouteImport.update({
   id: '/shop',
   path: '/shop',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DrinksRoute = DrinksRouteImport.update({
+  id: '/drinks',
+  path: '/drinks',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ContactRoute = ContactRouteImport.update({
@@ -46,6 +52,7 @@ export interface FileRoutesByFullPath {
   '/blog': typeof BlogRoute
   '/cart': typeof CartRoute
   '/contact': typeof ContactRoute
+  '/drinks': typeof DrinksRoute
   '/shop': typeof ShopRoute
 }
 export interface FileRoutesByTo {
@@ -53,6 +60,7 @@ export interface FileRoutesByTo {
   '/blog': typeof BlogRoute
   '/cart': typeof CartRoute
   '/contact': typeof ContactRoute
+  '/drinks': typeof DrinksRoute
   '/shop': typeof ShopRoute
 }
 export interface FileRoutesById {
@@ -61,14 +69,15 @@ export interface FileRoutesById {
   '/blog': typeof BlogRoute
   '/cart': typeof CartRoute
   '/contact': typeof ContactRoute
+  '/drinks': typeof DrinksRoute
   '/shop': typeof ShopRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/blog' | '/cart' | '/contact' | '/shop'
+  fullPaths: '/' | '/blog' | '/cart' | '/contact' | '/drinks' | '/shop'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/blog' | '/cart' | '/contact' | '/shop'
-  id: '__root__' | '/' | '/blog' | '/cart' | '/contact' | '/shop'
+  to: '/' | '/blog' | '/cart' | '/contact' | '/drinks' | '/shop'
+  id: '__root__' | '/' | '/blog' | '/cart' | '/contact' | '/drinks' | '/shop'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -76,6 +85,7 @@ export interface RootRouteChildren {
   BlogRoute: typeof BlogRoute
   CartRoute: typeof CartRoute
   ContactRoute: typeof ContactRoute
+  DrinksRoute: typeof DrinksRoute
   ShopRoute: typeof ShopRoute
 }
 
@@ -86,6 +96,13 @@ declare module '@tanstack/react-router' {
       path: '/shop'
       fullPath: '/shop'
       preLoaderRoute: typeof ShopRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/drinks': {
+      id: '/drinks'
+      path: '/drinks'
+      fullPath: '/drinks'
+      preLoaderRoute: typeof DrinksRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/contact': {
@@ -124,6 +141,7 @@ const rootRouteChildren: RootRouteChildren = {
   BlogRoute: BlogRoute,
   CartRoute: CartRoute,
   ContactRoute: ContactRoute,
+  DrinksRoute: DrinksRoute,
   ShopRoute: ShopRoute,
 }
 export const routeTree = rootRouteImport
