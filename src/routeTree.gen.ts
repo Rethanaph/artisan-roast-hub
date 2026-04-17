@@ -10,8 +10,10 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as ShopRouteImport } from './routes/shop'
+import { Route as OrderConfirmedRouteImport } from './routes/order-confirmed'
 import { Route as DrinksRouteImport } from './routes/drinks'
 import { Route as ContactRouteImport } from './routes/contact'
+import { Route as CheckoutRouteImport } from './routes/checkout'
 import { Route as CartRouteImport } from './routes/cart'
 import { Route as BlogRouteImport } from './routes/blog'
 import { Route as IndexRouteImport } from './routes/index'
@@ -19,6 +21,11 @@ import { Route as IndexRouteImport } from './routes/index'
 const ShopRoute = ShopRouteImport.update({
   id: '/shop',
   path: '/shop',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OrderConfirmedRoute = OrderConfirmedRouteImport.update({
+  id: '/order-confirmed',
+  path: '/order-confirmed',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DrinksRoute = DrinksRouteImport.update({
@@ -29,6 +36,11 @@ const DrinksRoute = DrinksRouteImport.update({
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
   path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CheckoutRoute = CheckoutRouteImport.update({
+  id: '/checkout',
+  path: '/checkout',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CartRoute = CartRouteImport.update({
@@ -51,16 +63,20 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/blog': typeof BlogRoute
   '/cart': typeof CartRoute
+  '/checkout': typeof CheckoutRoute
   '/contact': typeof ContactRoute
   '/drinks': typeof DrinksRoute
+  '/order-confirmed': typeof OrderConfirmedRoute
   '/shop': typeof ShopRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/blog': typeof BlogRoute
   '/cart': typeof CartRoute
+  '/checkout': typeof CheckoutRoute
   '/contact': typeof ContactRoute
   '/drinks': typeof DrinksRoute
+  '/order-confirmed': typeof OrderConfirmedRoute
   '/shop': typeof ShopRoute
 }
 export interface FileRoutesById {
@@ -68,24 +84,53 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/blog': typeof BlogRoute
   '/cart': typeof CartRoute
+  '/checkout': typeof CheckoutRoute
   '/contact': typeof ContactRoute
   '/drinks': typeof DrinksRoute
+  '/order-confirmed': typeof OrderConfirmedRoute
   '/shop': typeof ShopRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/blog' | '/cart' | '/contact' | '/drinks' | '/shop'
+  fullPaths:
+    | '/'
+    | '/blog'
+    | '/cart'
+    | '/checkout'
+    | '/contact'
+    | '/drinks'
+    | '/order-confirmed'
+    | '/shop'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/blog' | '/cart' | '/contact' | '/drinks' | '/shop'
-  id: '__root__' | '/' | '/blog' | '/cart' | '/contact' | '/drinks' | '/shop'
+  to:
+    | '/'
+    | '/blog'
+    | '/cart'
+    | '/checkout'
+    | '/contact'
+    | '/drinks'
+    | '/order-confirmed'
+    | '/shop'
+  id:
+    | '__root__'
+    | '/'
+    | '/blog'
+    | '/cart'
+    | '/checkout'
+    | '/contact'
+    | '/drinks'
+    | '/order-confirmed'
+    | '/shop'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   BlogRoute: typeof BlogRoute
   CartRoute: typeof CartRoute
+  CheckoutRoute: typeof CheckoutRoute
   ContactRoute: typeof ContactRoute
   DrinksRoute: typeof DrinksRoute
+  OrderConfirmedRoute: typeof OrderConfirmedRoute
   ShopRoute: typeof ShopRoute
 }
 
@@ -96,6 +141,13 @@ declare module '@tanstack/react-router' {
       path: '/shop'
       fullPath: '/shop'
       preLoaderRoute: typeof ShopRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/order-confirmed': {
+      id: '/order-confirmed'
+      path: '/order-confirmed'
+      fullPath: '/order-confirmed'
+      preLoaderRoute: typeof OrderConfirmedRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/drinks': {
@@ -110,6 +162,13 @@ declare module '@tanstack/react-router' {
       path: '/contact'
       fullPath: '/contact'
       preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/checkout': {
+      id: '/checkout'
+      path: '/checkout'
+      fullPath: '/checkout'
+      preLoaderRoute: typeof CheckoutRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/cart': {
@@ -140,8 +199,10 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   BlogRoute: BlogRoute,
   CartRoute: CartRoute,
+  CheckoutRoute: CheckoutRoute,
   ContactRoute: ContactRoute,
   DrinksRoute: DrinksRoute,
+  OrderConfirmedRoute: OrderConfirmedRoute,
   ShopRoute: ShopRoute,
 }
 export const routeTree = rootRouteImport

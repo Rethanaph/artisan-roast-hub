@@ -92,9 +92,9 @@ function CartPage() {
                     Add {formatPrice(350 - total)} more for free delivery!
                   </p>
                 )}
-                <button className="btn-primary-coffee w-full text-center">
+                <Link to="/checkout" className="btn-primary-coffee w-full text-center block">
                   Proceed to Checkout
-                </button>
+                </Link>
               </div>
             </>
           )}
