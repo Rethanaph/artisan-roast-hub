@@ -23,7 +23,8 @@ export function Navbar() {
 
   const navLinks = [
     { to: "/" as const, label: "Home" },
-    { to: "/shop" as const, label: "Shop" },
+    { to: "/shop" as const, label: "Beans" },
+    { to: "/drinks" as const, label: "Café Menu" },
     { to: "/blog" as const, label: "Blog" },
     { to: "/contact" as const, label: "Contact" },
   ];
