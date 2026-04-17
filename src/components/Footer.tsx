@@ -66,17 +66,11 @@ export function Footer() {
         <div className="section-divider mt-12 mb-8 opacity-20" />
         <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-xs opacity-50">
           <p>© 2026 Artisan Coffee Roasters. All rights reserved.</p>
-          <p>artisanroasters.co.za</p>
-        </div>
-        <div className="mt-6 text-center text-xs opacity-60">
           <p>
-            Created by <span className="font-heading font-bold text-accent">Bonolo Tomeng</span> ·{" "}
-            <a
-              href="mailto:bonolotomeng390@gmail.com"
-              className="underline hover:opacity-100 hover:text-accent transition-opacity"
-            >
-              bonolotomeng390@gmail.com
-            </a>
+            Created by{" "}
+            <span className="font-heading font-bold text-accent opacity-100">
+              Bonolo Tomeng
+            </span>
           </p>
         </div>
       </div>

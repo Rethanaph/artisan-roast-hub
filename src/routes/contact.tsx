@@ -109,9 +109,21 @@ function ContactPage() {
               Send Message
             </button>
           </form>
-          <div className="mt-8 flex items-center gap-2 justify-center text-sm text-muted-foreground">
-            <Mail className="h-4 w-4" />
-            Or email us directly at hello@artisanroasters.co.za
+          <div className="mt-8 flex flex-col items-center gap-2 text-sm text-muted-foreground">
+            <div className="flex items-center gap-2">
+              <Mail className="h-4 w-4" />
+              Or email us directly at hello@artisanroasters.co.za
+            </div>
+            <div className="flex items-center gap-2">
+              <Mail className="h-4 w-4" />
+              Created by Bonolo Tomeng ·{" "}
+              <a
+                href="mailto:bonolotomeng390@gmail.com"
+                className="underline hover:text-accent transition-colors"
+              >
+                bonolotomeng390@gmail.com
+              </a>
+            </div>
           </div>
         </div>
       </section>
