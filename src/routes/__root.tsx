@@ -31,14 +31,18 @@ export const Route = createRootRoute({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Artisan Coffee Roasters — Ethically Sourced, Skillfully Roasted" },
+      { title: "Artisan Coffee Roasters" },
       { name: "description", content: "Premium specialty coffee beans, ethically sourced and roasted in Cape Town. Shop single origin coffees and visit our three cafés." },
       { name: "author", content: "Artisan Coffee Roasters" },
       { property: "og:title", content: "Artisan Coffee Roasters" },
-      { property: "og:description", content: "Premium specialty coffee beans, ethically sourced and roasted in Cape Town." },
+      { property: "og:description", content: "Premium specialty coffee beans, ethically sourced and roasted in Cape Town. Shop single origin coffees and visit our three cafés." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:title", content: "Artisan Coffee Roasters" },
+      { name: "twitter:description", content: "Premium specialty coffee beans, ethically sourced and roasted in Cape Town. Shop single origin coffees and visit our three cafés." },
+      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/2ab633b4-15d1-4354-a784-e93dd3b04a96" },
+      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/2ab633b4-15d1-4354-a784-e93dd3b04a96" },
     ],
     links: [
       {
